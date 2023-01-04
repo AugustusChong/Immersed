@@ -19,11 +19,11 @@ GO
 -- =============================================
 
 CREATE PROC [dbo].[DemoAccounts_Insert]
-   @Id int OUTPUT
-  ,@CreatedBy int
-  ,@OrgId int
-  ,@StartDate datetime2(7)
-  ,@ExpirationDate datetime2(7)
+             @Id int OUTPUT
+            ,@CreatedBy int
+            ,@OrgId int
+            ,@StartDate datetime2(7)
+            ,@ExpirationDate datetime2(7)
 
 AS
 
@@ -50,10 +50,10 @@ BEGIN
 
   INSERT INTO [dbo].[DemoAccounts]
               (
-                [CreatedBy]
-               ,[OrgId]
-               ,[StartDate]
-               ,[ExpirationDate]
+               [CreatedBy]
+              ,[OrgId]
+              ,[StartDate]
+              ,[ExpirationDate]
               )
   VALUES      (
                @CreatedBy
