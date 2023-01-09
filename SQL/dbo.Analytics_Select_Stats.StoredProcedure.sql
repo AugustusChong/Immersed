@@ -18,7 +18,7 @@ GO
 -- Note:
 -- =============================================
 
-ALTER PROC [dbo].[Analytics_Select_Stats]
+CREATE PROC [dbo].[Analytics_Select_Stats]
 
 AS
 
