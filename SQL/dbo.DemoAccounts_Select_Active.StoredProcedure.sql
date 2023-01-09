@@ -49,7 +49,7 @@ BEGIN
                                 )
     FROM        GeneratedDates AS gd
     LEFT JOIN	dbo.[DemoAccounts] AS da
-    ON			gd.[GeneratedDate] = CONVERT(date, da.[StartDate])
+    ON          gd.[GeneratedDate] = CONVERT(date, da.[StartDate])
     GROUP BY	CONVERT(DATE, DATEADD(dd, 0 - (@@DATEFIRST + 6 + DATEPART(dw, gd.[GeneratedDate])) % 7, gd.[GeneratedDate]))
     ORDER BY	[Week] DESC
 
