@@ -24,28 +24,28 @@ AS
 
 /*
 
-	EXECUTE [dbo].[Analytics_Select_Stats]
+    EXECUTE [dbo].[Analytics_Select_Stats]
 
 */
 
 BEGIN
 
-  SELECT  TotalOrgs =   (
-                         SELECT   COUNT(o.[Id])
-                         FROM     [dbo].[Organizations] AS o
-                        )
-         ,ActiveOrgs =  (
-                         SELECT   COUNT(CASE o.[IsDeleted] WHEN 0 THEN 1 ELSE NULL END)
-                         FROM     [dbo].[Organizations] AS o
-                        )
-         ,DemoAccounts60Days =   (
-                                  SELECT  COUNT(CASE WHEN (da.[StartDate] > DATEADD(d, -60, GETDATE()) 
-                                  AND da.[ExpirationDate] > GETUTCDATE()) THEN 1 ELSE NULL END)
-                                  FROM    [dbo].[DemoAccounts] AS da
-                                 )
-         ,ActiveSubscriptions =  (
-                                  SELECT  COUNT(CASE s.[isActive] WHEN 'active' THEN 1 ELSE NULL END)
-                                  FROM	  [dbo].[Subscriptions] AS s
-                                 )
+    SELECT  TotalOrgs =     (
+                            SELECT   COUNT(o.[Id])
+                            FROM     [dbo].[Organizations] AS o
+                            )
+            ,ActiveOrgs =   (
+                            SELECT   COUNT(CASE o.[IsDeleted] WHEN 0 THEN 1 ELSE NULL END)
+                            FROM     [dbo].[Organizations] AS o
+                            )
+            ,DemoAccounts60Days =   (
+                                    SELECT  COUNT(CASE WHEN (da.[StartDate] > DATEADD(d, -60, GETDATE()) 
+                                    AND     da.[ExpirationDate] > GETUTCDATE()) THEN 1 ELSE NULL END)
+                                    FROM    [dbo].[DemoAccounts] AS da
+                                    )
+            ,ActiveSubscriptions =  (
+                                    SELECT  COUNT(CASE s.[isActive] WHEN 'active' THEN 1 ELSE NULL END)
+                                    FROM    [dbo].[Subscriptions] AS s
+                                    )
 
 END
