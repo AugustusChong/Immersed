@@ -37,7 +37,7 @@ AS
 
 BEGIN
 
-    DECLARE @offset int = @PageIndex * @PageSize
+    DECLARE     @offset int = @PageIndex * @PageSize
 
     SELECT       [Id]
                 ,[CreatedBy]
@@ -49,8 +49,8 @@ BEGIN
 
     ORDER BY    [Id]
 
-    OFFSET @offset ROWS
-    FETCH NEXT @PageSize ROWS ONLY
+    OFFSET      @offset ROWS
+    FETCH NEXT  @PageSize ROWS ONLY
 
 END
 
