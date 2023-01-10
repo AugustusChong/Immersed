@@ -48,12 +48,12 @@ BEGIN
                                 SELECT  COUNT(*)
                                 FROM    [dbo].[InviteMembers]
                                 )
-            ,[FlaggedUsers]	=   (
+            ,[FlaggedUsers] =   (
                                 SELECT  COUNT ([StatusTypeId])
                                 FROM    [dbo].[Users]
                                 WHERE   [StatusTypeId] = 4
                                 )
-            ,[RemovedUsers]	=   (
+            ,[RemovedUsers] =   (
                                 SELECT  COUNT ([StatusTypeId])
                                 FROM    [dbo].[Users]
                                 WHERE   [StatusTypeId] = 5
