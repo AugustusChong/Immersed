@@ -35,30 +35,30 @@ BEGIN
 
     SELECT   [Id] 
             ,[ActiveUsers] =    (
-                                SELECT COUNT ([StatusTypeId])
-                                FROM [dbo].[Users]
-                                WHERE [StatusTypeId] = 1
+                                SELECT  COUNT ([StatusTypeId])
+                                FROM    [dbo].[Users]
+                                WHERE   [StatusTypeId] = 1
                                 )
             ,[InactiveUsers] =  (
-                                SELECT COUNT ([StatusTypeId])
-                                FROM [dbo].[Users]
-                                WHERE [StatusTypeId] = 2
+                                SELECT  COUNT ([StatusTypeId])
+                                FROM    [dbo].[Users]
+                                WHERE   [StatusTypeId] = 2
                                 )
             ,[PendingUsers] =   (
-                                SELECT	COUNT(*)
-                                FROM	[dbo].[InviteMembers]
+                                SELECT  COUNT(*)
+                                FROM    [dbo].[InviteMembers]
                                 )
             ,[FlaggedUsers]	=   (
-                                SELECT COUNT ([StatusTypeId])
-                                FROM [dbo].[Users]
-                                WHERE [StatusTypeId] = 4
+                                SELECT  COUNT ([StatusTypeId])
+                                FROM    [dbo].[Users]
+                                WHERE   [StatusTypeId] = 4
                                 )
             ,[RemovedUsers]	=   (
-                                SELECT COUNT ([StatusTypeId])
-                                FROM [dbo].[Users]
-                                WHERE [StatusTypeId] = 5
+                                SELECT  COUNT ([StatusTypeId])
+                                FROM    [dbo].[Users]
+                                WHERE   [StatusTypeId] = 5
                                 )
-            ,[TotalUsers] =	    (
+            ,[TotalUsers] =     (
                                 SELECT COUNT ([Id])
                                 FROM [dbo].[Users]
                                 )
